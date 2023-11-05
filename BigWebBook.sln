@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigWebBook", "BigWebBook\BigWebBook.csproj", "{367493DE-71CE-4FD7-8723-F03F54979AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigWebBook", "BigWebBook\BigWebBook.csproj", "{367493DE-71CE-4FD7-8723-F03F54979AAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigWebBooksRazor_Temp", "BigWebBooksRazor_Temp\BigWebBooksRazor_Temp.csproj", "{246CDC93-37A1-4309-93C8-921975F0FAF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{367493DE-71CE-4FD7-8723-F03F54979AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{367493DE-71CE-4FD7-8723-F03F54979AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{367493DE-71CE-4FD7-8723-F03F54979AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246CDC93-37A1-4309-93C8-921975F0FAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246CDC93-37A1-4309-93C8-921975F0FAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246CDC93-37A1-4309-93C8-921975F0FAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246CDC93-37A1-4309-93C8-921975F0FAF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,38 @@
+﻿@page
+@model BigWebBooksRazor_Temp.Pages.Categories.EditModel
+
+<div class="container">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Редактирование категории</h2>
+        </div>
+
+        <div asp-validation-summary="All"></div>
+
+        <input asp-for="Category.Id" hidden />
+
+        <div class="mb-3">
+            <form method="post" asp-page="/categories/edit">
+                <input asp-for="Category.Id" hidden/>
+                <div class="mb-3">
+                    <label asp-for="Category.Name"></label>
+                    <input asp-for="Category.Name" class="form-control" />
+                    <span asp-validation-for="Category.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Category.DisplayOrder"></label>
+                    <input asp-for="Category.DisplayOrder" class="form-control" />
+                    <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Редактировать" />
+                <a asp-page="/categories/index" class="btn btn-secondary">Назад к списку</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

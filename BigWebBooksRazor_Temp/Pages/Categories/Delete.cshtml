@@ -1,0 +1,29 @@
+﻿@page
+@model BigWebBooksRazor_Temp.Pages.Categories.DeleteModel
+
+<div class="container">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Удаление категории</h2>
+        </div>
+
+        <div asp-validation-summary="All"></div>
+
+
+        <div class="mb-3">
+            <form method="post" asp-page="/categories/delete">
+               <input asp-for="Category.Id" hidden />
+                <div class="mb-3">
+                    <label asp-for="Category.Name"></label>
+                    <input asp-for="Category.Name" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Category.DisplayOrder"></label>
+                    <input asp-for="Category.DisplayOrder" class="form-control" disabled />
+                </div>
+                <input type="submit" class="btn btn-danger" value="Удалить" />
+                <a asp-page="/categories/index" class="btn btn-secondary">Назад к списку</a>
+            </form>
+        </div>
+    </div>
+</div>
