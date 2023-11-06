@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BigWeb.DataAccess\BigWeb.DataAccess.csproj" />
+    <ProjectReference Include="..\BigWeb.Models\BigWeb.Models.csproj" />
+  </ItemGroup>
+
 </Project>

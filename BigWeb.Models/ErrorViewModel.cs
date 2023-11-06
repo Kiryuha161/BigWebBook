@@ -1,4 +1,4 @@
-namespace BigWebBook.Models
+namespace BigWeb.Models
 {
     public class ErrorViewModel
     {

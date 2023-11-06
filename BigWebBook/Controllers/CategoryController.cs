@@ -1,5 +1,5 @@
-﻿using BigWebBook.Data;
-using BigWebBook.Models;
+﻿using BigWeb.DataAccess.Data;
+using BigWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BigWebBook.Controllers

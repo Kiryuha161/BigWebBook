@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BigWebBook.Migrations
+namespace BigWeb.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddMigrationToDatabase : Migration

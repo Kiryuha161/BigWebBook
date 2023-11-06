@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using BigWebBook.Models;
+using BigWeb.Models;
 
-namespace BigWebBook.Data
+namespace BigWeb.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
