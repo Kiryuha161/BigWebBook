@@ -3,6 +3,7 @@ using BigWeb.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BigWeb.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231112163636_AddProductToDatabase")]
+    partial class AddProductToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,18 +119,11 @@ namespace BigWeb.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ISBN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -149,8 +145,6 @@ namespace BigWeb.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
 
                     b.HasData(
@@ -158,27 +152,50 @@ namespace BigWeb.DataAccess.Migrations
                         {
                             Id = 1,
                             Author = "Анжей Сапковский",
-                            CategoryId = 7,
                             Description = "«Последнее желание» — сборник рассказов писателя Анджея Сапковского в жанре фэнтези, объединённых общим персонажем — ведьмаком Геральтом из Ривии. Это первое произведение из цикла «Ведьмак» как по хронологии, так и по времени написания.",
                             ISBN = "978-5-17-148071-4",
-                            ImageUrl = "https://imgproxy.patephone.com/pr:sharp/s:470/dpr:2/plain/https://cdru.patephone.com/ru-fast/c/products/701/150/036/075/113/188121_resized1242.jpg?cc=1543189188000",
                             ListPrice = 500.0,
                             Price = 485.0,
                             Price100 = 400.0,
                             Price50 = 450.0,
                             Title = "Ведьмак. Последнее желание"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Анжей Сапковский",
+                            Description = "«Cборник рассказов Анджея Сапковского в жанре фэнтези, объединённых общим персонажем — ведьмаком Геральтом из Ривии. Это второе произведение из цикла «Ведьмак» как по хронологии, так и по времени написания. В этой части Геральт впервые встречает Цири и находит своё предназначение.",
+                            ISBN = "978-5-17-118208-3",
+                            ListPrice = 400.0,
+                            Price = 385.0,
+                            Price100 = 300.0,
+                            Price50 = 350.0,
+                            Title = "Ведьмак. Меч предназначения"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "Анжей Сапковский",
+                            Description = "«Третья книга из цикла «Ведьмак» польского писателя Анджея Сапковского.",
+                            ISBN = "978-5-17-118219-9",
+                            ListPrice = 400.0,
+                            Price = 385.0,
+                            Price100 = 300.0,
+                            Price50 = 350.0,
+                            Title = "Ведьмак. Кровь эльфов"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Author = "Анжей Сапковский",
+                            Description = "«Четвёртая книга из цикла «Ведьмак» польского писателя Анджея Сапковского",
+                            ISBN = "978-5-17-118219-9",
+                            ListPrice = 650.0,
+                            Price = 625.0,
+                            Price100 = 525.0,
+                            Price50 = 575.0,
+                            Title = "Ведьмак. Час презрения"
                         });
-                });
-
-            modelBuilder.Entity("BigWeb.Models.Product", b =>
-                {
-                    b.HasOne("BigWeb.Models.Category", "CategoryName")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CategoryName");
                 });
 #pragma warning restore 612, 618
         }

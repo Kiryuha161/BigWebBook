@@ -1,26 +1,29 @@
 ﻿using BigWeb.DataAccess.Data;
+using BigWeb.DataAccess.Repository;
+using BigWeb.DataAccess.Repository.IRepository;
 using BigWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BigWebBook.Controllers
+namespace BigWebBook.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _database;
-
-        public CategoryController(ApplicationDbContext database)
+        private readonly IUnitOfWork _unitOfWork;
+        
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _database = database;
+            _unitOfWork = unitOfWork;
         }
-        
-        
+
+
         public IActionResult Index()
         {
-            List<Category> listCategory = _database.Categories.ToList();
+            List<Category> listCategory = _unitOfWork.Category.GetAll().ToList();
             return View(listCategory);
         }
 
-        
+
         public IActionResult Create()
         {
             return View();
@@ -33,7 +36,7 @@ namespace BigWebBook.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDatabase = _database.Categories.Find(id);
+            Category? categoryFromDatabase = _unitOfWork.Category.Get(u => u.Id == id);
             if (categoryFromDatabase == null)
             {
                 return NotFound();
@@ -49,7 +52,7 @@ namespace BigWebBook.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDatabase = _database.Categories.Find(id);
+            Category? categoryFromDatabase = _unitOfWork.Category.Get(u => u.Id == id);
             if (categoryFromDatabase == null)
             {
                 return NotFound();
@@ -67,11 +70,11 @@ namespace BigWebBook.Controllers
             {
                 ModelState.AddModelError("name", "Имя и порядковый номер не могут совпадать");
             }
-            
+
             if (ModelState.IsValid)
             {
-                _database.Categories.Add(category);
-                _database.SaveChanges();
+                _unitOfWork.Category.Add(category);
+                _unitOfWork.Save();
 
                 TempData["SuccessMessage"] = "Категория создана!";
 
@@ -86,10 +89,10 @@ namespace BigWebBook.Controllers
         [HttpPost]
         public IActionResult Edit(Category category)
         {
-           if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                _database.Categories.Update(category);
-                _database.SaveChanges();
+                _unitOfWork.Category.Update(category);
+                _unitOfWork.Save();
 
                 TempData["SuccessMessage"] = "Категория отредактирована!";
 
@@ -106,15 +109,15 @@ namespace BigWebBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                Category? categoryFromDatabase = _database.Categories.Find(id);
-                
+                Category? categoryFromDatabase = _unitOfWork.Category.Get(u => u.Id == id);
+
                 if (categoryFromDatabase == null)
                 {
                     return NotFound();
                 }
-                
-                _database.Categories.Remove(categoryFromDatabase);
-                _database.SaveChanges();
+
+                _unitOfWork.Category.Remove(categoryFromDatabase);
+                _unitOfWork.Save();
 
                 TempData["SuccessMessage"] = "Категория удалена!";
 
@@ -127,4 +130,6 @@ namespace BigWebBook.Controllers
         }
     }
 }
+
+        
 
