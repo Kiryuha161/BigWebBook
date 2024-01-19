@@ -1,8 +1,19 @@
-﻿@{
+﻿@model IEnumerable<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Добро пожаловать</h1>
-    <p>Это большой сайт про книги</p>
+<div class="row mt-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-3 mb-3" style="height: 75vh; overflow: auto;">
+            <a class="text-decoration-none card-product" href="#"><div class="card h-100">
+                <img class="card-img-top h-75 border border-5 rounded" src="@product.ImageUrl" alt="Карточка книги">
+                <span class="text-primary mt-2 mb-2 ml-2">@product.Title</span>
+                <span class="mb-2 ml-2">@product.Author</span>
+                <span class="text-secondary mb-2 ml-2">@product.CategoryName.Name</span>
+                </div></a>
+        </div>
+    }
 </div>
+
