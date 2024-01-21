@@ -1,0 +1,93 @@
+﻿@model Product
+
+<div class="row">
+    <div class="col-12 text-center mt-3">
+        <div class="bg-primary">
+            <h2 class="text-truncate">@Model.Title</h2>
+            <p class="text-dark">@Model.Author</p>
+        </div>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col-12">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Назад к главной</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 text-center">
+        <img class="w-75 h-50" src="@Model.ImageUrl">
+    </div>
+    <div class="col-6">
+        <p class="text-bg-warning w-25">@Model.CategoryName.Name</p>
+        <div class="mb-4">
+            <p class="text-secondary">ISBN: @Model.ISBN</p>
+            <p class="text-secondary">Цена по прайсу: @Model.ListPrice</p>
+        </div>
+        <div class="table-responsive mb-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="w-25">Стоимость</th>
+                        <th class="w-25">1-50</th>
+                        <th class="w-25">50+</th>
+                        <th class="w-25">100+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-warning">@Model.Price</td>
+                        <td class="text-warning">@Model.Price</td>
+                        <td class="text-warning">@Model.Price50</td>
+                        <td class="text-warning">@Model.Price100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>@Html.Raw(Model.Description)</p>
+        </di>
+        <div class="mb-3">
+            <a class="btn btn-primary">Количество</a>
+            <span><input type="text" value="1" placeholder="1"/></span>
+        </div>
+        <div>
+            <a class="btn btn-warning">Добавить в корзину</a>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+     <div class="col-12 text-center">
+         <h2 class="text-warning">@Model.Title @Model.Author</h2>
+     </div>
+</div>
+<div class="row" style="height: 650px;">
+    <div class="col-6 text-center">
+        <img class="w-75 h-50" src="@Model.ImageUrl" />
+    </div>
+    <div class="col-6 text-center">
+        <div>
+            <h3 class="text-secondary">Описание</h3>
+            <p class="text-primary">@Html.Raw(Model.Description)</p>
+            <p class="text-bg-warning">ISBN: @Model.ISBN</p>
+        </div>
+        <div>
+            <h3 class="text-secondary">Цена</h3>
+            <p>Старая цена: <span class="text-decoration-line-through">@Model.ListPrice</span></p>
+            <p>Новая цена: <span class="text-bg-danger">@Model.Price</span></p>
+            <a class="btn btn-primary">Купить</a>
+        </div>
+        <div>
+            <h3 class="text-secondary">Оптовая покупка</h3>
+            <p>Цена за 50+ экземпляров <span class="text-bg-danger">@Model.Price50</span></p>
+            <a class="btn btn-primary">Купить 50+</a>
+            <p>Цена за 100+ экземпляров <span class="text-bg-warning">@Model.Price100</span></p>
+            <a class="btn btn-primary">Купить 100+</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">На главную</a>
+    </div>
+</div>*@

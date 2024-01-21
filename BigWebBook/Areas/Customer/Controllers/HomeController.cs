@@ -24,6 +24,17 @@ namespace BigWebBook.Areas.Customer.Controllers
             return View(products);
         }
 
+        public IActionResult Details(int? id)
+        {
+            if (id != null)
+            {
+                Product product = _unitOfWork.Product.Get(u => u.Id == id, includeProperties: "CategoryName");
+                return View(product);
+            }
+            
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
