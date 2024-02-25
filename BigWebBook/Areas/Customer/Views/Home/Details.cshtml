@@ -21,7 +21,7 @@
         <p class="text-bg-warning w-25">@Model.CategoryName.Name</p>
         <div class="mb-4">
             <p class="text-secondary">ISBN: @Model.ISBN</p>
-            <p class="text-secondary">Цена по прайсу: @Model.ListPrice</p>
+            <p class="text-secondary">Цена по прайсу: @Model.ListPrice.ToString("c")</p>
         </div>
         <div class="table-responsive mb-5">
             <table class="table">
@@ -35,19 +35,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="text-warning">@Model.Price</td>
-                        <td class="text-warning">@Model.Price</td>
-                        <td class="text-warning">@Model.Price50</td>
-                        <td class="text-warning">@Model.Price100</td>
+                        <td class="text-warning">@Model.Price.ToString("c")</td>
+                        <td class="text-warning">@Model.Price.ToString("c")</td>
+                        <td class="text-warning">@Model.Price50.ToString("c")</td>
+                        <td class="text-warning">@Model.Price100.ToString("c")</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div>
             <p>@Html.Raw(Model.Description)</p>
-        </di>
+        </div>
         <div class="mb-3">
-            <a class="btn btn-primary">Количество</a>
+            <span class="btn btn-primary" style="cursor: default;">Количество</span>
             <span><input type="text" value="1" placeholder="1"/></span>
         </div>
         <div>

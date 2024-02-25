@@ -5,7 +5,7 @@
 <div class="container">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">@(Model.Product.Id != 0? "Редактирование " : "Создание ") продукта</h2>
+            <h2 class="text-primary">@(Model.Product.Id != 0 ? "Редактирование " : "Создание ") продукта</h2>
         </div>
 
         <div asp-validation-summary="All"></div>
@@ -81,10 +81,10 @@
                         }
                     </div>
                     <div class="col-2">
-                        <img src="@Model.Product.ImageUrl" style="width: 100%; height: auto;"/>
+                        <img src="@Model.Product.ImageUrl" style="width: 100%; height: auto;" />
                     </div>
                 </div>
-                
+
             </form>
         </div>
     </div>
@@ -94,16 +94,8 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [
-                { value: 'First.Name', title: 'First Name' },
-                { value: 'Email', title: 'Email' },
-            ],
-            paste_as_text: true,
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
     </script>
     @{
